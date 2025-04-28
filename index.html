@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Pixel</title>
+	<meta name="description" content="Simple Starter Description">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/preview.jpg">
+
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="libs/fancybox/fancybox.min.css">
+
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+
+	<script src="libs/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="libs/swiper/swiper-bundle.min.js" defer></script>
+	<script src="libs/fancybox/fancybox.umd.js" defer></script>
+	<script src="libs/input-mask/jquery.maskedinput.min.js" defer></script>
+
+	<script src="js/common.js" defer></script>
+
+</head>
+
+<body>
+
+	<div class="app">
+		<header>
+			<div class="container relative">
+				<div class="row align-items-center justify-content-between header_wrap">
+					<div class="col">
+						<a href="/" class="logo">
+							<svg width="95" height="32" viewBox="0 0 95 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M88.4697 31.4531C91.7213 31.4531 94.3572 28.8172 94.3572 25.5657C94.3572 22.3142 91.7213 19.6783 88.4697 19.6783C85.2182 19.6783 82.5823 22.3142 82.5823 25.5657C82.5823 28.8172 85.2182 31.4531 88.4697 31.4531Z"
+									fill="#04B2D9" />
+								<path
+									d="M79.6344 30.4797C78.4536 31.5284 76.6297 31.42 75.5815 30.2397L70.6659 24.7047C69.6171 23.5238 69.7256 21.7 70.9059 20.6518C72.0867 19.603 73.9105 19.7115 74.9588 20.8918L79.8744 26.4268C80.9232 27.6076 80.8153 29.4315 79.6344 30.4797Z"
+									fill="#04B2D9" />
+								<path
+									d="M54.9899 0C53.057 0.0859928 51.657 1.74121 51.8138 3.40487C51.9447 4.79087 53.1391 5.99814 54.7027 6.18024C59.2755 6.23813 63.8477 6.29602 68.4205 6.35391C70.2668 6.93226 71.5455 8.22721 71.5882 9.55981C71.6427 11.2673 69.7385 13.0332 68.3716 13.0175C64.9701 12.9787 62.1222 13.008 59.96 13.0406C59.3811 13.049 58.3352 13.0793 57.586 13.7937C56.8913 14.4563 56.7412 15.3843 56.7412 15.8024C56.7412 20.1701 56.7412 24.5372 56.7412 28.9048C56.839 30.5555 58.2604 31.769 59.7459 31.6515C61.0392 31.5492 62.1503 30.4572 62.288 29.042C62.288 25.8349 62.288 22.6279 62.288 19.4203C64.4643 19.4203 66.6405 19.4203 68.8162 19.4203C69.7402 19.3967 71.4752 19.2225 73.2372 18.1591C76.6674 16.0902 77.3812 12.3565 77.5267 11.5905C77.7454 10.4417 78.2563 6.32581 75.4775 3.166C72.8309 0.156249 69.0219 0.0972343 68.4003 0.0972343C63.9314 0.0646357 59.4604 0.0325986 54.9899 0Z"
+									fill="#04B2D9" />
+								<path
+									d="M0 13.6622V0.748081H5.02187C5.90596 0.748081 6.58098 0.789111 7.04691 0.871169C7.70057 0.976833 8.24856 1.17804 8.69089 1.4748C9.13266 1.77156 9.48843 2.18692 9.75822 2.72142C10.0274 3.25592 10.1623 3.84326 10.1623 4.48343C10.1623 5.58167 9.80205 6.51129 9.08151 7.27173C8.36097 8.03218 7.05928 8.41268 5.17643 8.41268H1.76145V13.6627H0V13.6622ZM1.76145 6.88786H5.20341C6.34155 6.88786 7.14977 6.68215 7.62807 6.27129C8.10637 5.86044 8.34524 5.28153 8.34524 4.5357C8.34524 3.99557 8.20473 3.53301 7.92314 3.14801C7.64156 2.76357 7.27061 2.50953 6.81085 2.38588C6.51409 2.30944 5.9661 2.27122 5.16687 2.27122H1.76145V6.88786Z"
+									fill="white" />
+								<path d="M12.705 13.6622V0.748085H14.467V13.6622H12.705Z" fill="white" />
+								<path
+									d="M16.2195 13.6622L21.3689 6.93226L16.8282 0.748085H18.9257L21.3414 4.06021C21.8439 4.74759 22.2008 5.27592 22.4132 5.64574C22.71 5.17587 23.0612 4.68577 23.4665 4.17487L26.1457 0.748085H28.0618L23.385 6.83503L28.4248 13.6622H26.2452L22.8943 9.0551C22.7066 8.79094 22.5127 8.50317 22.3132 8.1918C22.0164 8.66167 21.8045 8.98485 21.6775 9.16077L18.3356 13.6622H16.2195Z"
+									fill="white" />
+								<path
+									d="M30.0143 13.6622V0.748085H39.6404V2.27179H31.7757V6.22689H39.1408V7.74217H31.7757V12.1379H39.949V13.6616H30.0143V13.6622Z"
+									fill="white" />
+								<path d="M42.3102 13.6622V0.748085H44.0722V12.1379H50.629V13.6616H42.3102V13.6622Z" fill="white" />
+								<path
+									d="M5.50692 25.9901V31.7555H0.0831909V15.889H7.52297C9.37772 15.889 10.7879 16.0829 11.7535 16.4702C12.7191 16.858 13.4846 17.4504 14.0506 18.2485C14.616 19.0466 14.8992 19.9419 14.8992 20.9339C14.8992 22.4453 14.3203 23.6655 13.1637 24.5956C12.0064 25.5253 10.4625 25.9906 8.53128 25.9906H5.50692V25.9901ZM5.43048 22.5841H7.21722C8.79095 22.5841 9.57781 22.0569 9.57781 21.003C9.57781 20.011 8.85052 19.5153 7.39539 19.5153H5.42992V22.5841H5.43048Z"
+									fill="white" />
+								<path
+									d="M32.3957 31.7561H26.4678L23.9234 25.6883H22.2373V31.7561H16.89V15.889H25.989C27.9966 15.889 29.5557 16.3173 30.6663 17.1733C31.7763 18.0298 32.3316 19.159 32.3316 20.5618C32.3316 21.4763 32.1276 22.2839 31.719 22.9854C31.3104 23.6868 30.4853 24.3045 29.2432 24.8396L32.3957 31.7561ZM22.2373 22.2935H24.5215C25.1937 22.2935 25.7338 22.1659 26.1424 21.9096C26.551 21.6539 26.755 21.2779 26.755 20.7822C26.755 19.7671 26.0699 19.2596 24.7002 19.2596H22.2373V22.2935Z"
+									fill="white" />
+								<path
+									d="M42.2472 32C39.7972 32 37.7997 31.2598 36.2558 29.7799C34.7119 28.3001 33.9396 26.32 33.9396 23.8397C33.9396 21.4684 34.6776 19.5097 36.1535 17.9635C37.6294 16.4173 39.6775 15.6445 42.2983 15.6445C44.723 15.6445 46.6986 16.3729 48.2262 17.8297C49.7533 19.2866 50.5171 21.2318 50.5171 23.6649C50.5171 26.1834 49.7471 28.2023 48.2071 29.7209C46.6671 31.2407 44.6803 32 42.2472 32ZM42.2219 28.3962C43.1234 28.3962 43.7726 28.0376 44.1683 27.321C44.5639 26.6044 44.7618 25.2926 44.7618 23.3861C44.7618 20.6276 43.9491 19.2478 42.3242 19.2478C40.5717 19.2478 39.6955 20.8209 39.6955 23.9673C39.695 26.9203 40.5375 28.3962 42.2219 28.3962Z"
+									fill="white" />
+							</svg>
+						</a>
+					</div>
+					<div class="col-md-6 d-none d-lg-block">
+						<nav>
+							<ul class="d-flex align-items-center justify-content-center">
+								<li>
+									<a href="#">Главная</a>
+								</li>
+								<li>
+									<a href="#">Портфолио</a>
+								</li>
+								<li>
+									<a href="#">Каталог</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col">
+						<div class="d-flex align-items-center justify-content-end h_widget">
+							<a href="#" class="btn contact d-none d-inline-block">Связаться с нами</a>
+							<div class="d-flex align-items-center h_social">
+								<a href="#" target="_blank">
+									<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_1_115)">
+											<path
+												d="M20.0156 40.0312C31.0699 40.0312 40.0312 31.0699 40.0312 20.0156C40.0312 8.96128 31.0699 0 20.0156 0C8.96128 0 0 8.96128 0 20.0156C0 31.0699 8.96128 40.0312 20.0156 40.0312Z"
+												fill="url(#paint0_linear_1_115)" />
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M9.04127 19.7973C14.8714 17.2408 18.7685 15.5885 20.7326 14.7779C26.2821 12.4708 27.4357 12.0655 28.1839 12.0343C28.3398 12.0343 28.7139 12.0655 28.9633 12.2525C29.1504 12.4084 29.2127 12.6267 29.2439 12.7825C29.2751 12.9384 29.3063 13.2814 29.2751 13.562C28.9633 16.7108 27.6851 24.4115 26.9992 27.9345C26.7186 29.431 26.1574 29.9298 25.6274 29.9922C24.4739 30.0857 23.5697 29.2128 22.4473 28.4957C20.7014 27.3422 19.7038 26.6251 17.989 25.5027C16.0249 24.1933 17.3032 23.4762 18.4255 22.3227C18.7061 22.0109 23.8503 17.3655 23.9438 16.9291C23.9438 16.8667 23.975 16.6797 23.8503 16.5861C23.7256 16.4926 23.5697 16.5238 23.445 16.5549C23.2579 16.5861 20.452 18.4567 14.9961 22.1356C14.1855 22.6968 13.4684 22.9462 12.8137 22.9462C12.0966 22.9462 10.7248 22.5409 9.69599 22.198C8.44891 21.7927 7.45125 21.5744 7.54478 20.8885C7.60713 20.5456 8.10596 20.1715 9.04127 19.7973Z"
+												fill="white" />
+										</g>
+										<defs>
+											<linearGradient id="paint0_linear_1_115" x1="0" y1="20.0011" x2="40.0022" y2="20.0011"
+												gradientUnits="userSpaceOnUse">
+												<stop stop-color="#2AABEE" />
+												<stop offset="1" stop-color="#229ED9" />
+											</linearGradient>
+											<clipPath id="clip0_1_115">
+												<rect width="40" height="40" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+								<a href="#" target="_blank">
+									<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_1_120)">
+											<path
+												d="M20.0156 40.0312C31.0699 40.0312 40.0312 31.0699 40.0312 20.0156C40.0312 8.96128 31.0699 0 20.0156 0C8.96128 0 0 8.96128 0 20.0156C0 31.0699 8.96128 40.0312 20.0156 40.0312Z"
+												fill="#25D366" />
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M19.9481 9C13.9641 9 9.09329 13.8902 9.09075 19.9006C9.09012 21.8219 9.59021 23.6973 10.5403 25.3502L9 31L14.7555 29.484C16.3415 30.3526 18.1267 30.8101 19.9437 30.8107H19.9481C25.9315 30.8107 30.8024 25.9199 30.8049 19.9095C30.8062 16.9967 29.6778 14.2579 27.6279 12.1977C25.578 10.1368 22.8523 9.00127 19.9481 9ZM19.9443 28.9698H19.9481C24.9218 28.9698 28.9702 24.9048 28.9721 19.9089C28.9727 17.488 28.0353 15.2112 26.3313 13.4989C24.628 11.786 22.3623 10.8423 19.952 10.8416C14.9745 10.8416 10.9261 14.9059 10.9242 19.9019C10.9236 21.6135 11.4008 23.2811 12.3039 24.7238L12.5184 25.0667L11.6071 28.4103L15.0221 27.5105L15.3515 27.7068C16.7369 28.532 18.3254 28.9698 19.9443 28.9698ZM24.8977 22.1838C24.6267 22.0474 23.2927 21.3885 23.0439 21.2974C22.7951 21.2063 22.6143 21.161 22.4334 21.4338C22.2525 21.7065 21.7328 22.3202 21.5747 22.5018C21.4167 22.684 21.258 22.7064 20.9871 22.57C20.9427 22.5477 20.8822 22.5213 20.8075 22.4887C20.4255 22.3222 19.672 21.9937 18.8058 21.2178C17.9992 20.4958 17.4547 19.6036 17.2966 19.3309C17.1386 19.0582 17.2795 18.911 17.4159 18.7752C17.4971 18.6942 17.5903 18.5801 17.6837 18.4658C17.7305 18.4085 17.7774 18.3512 17.8227 18.2979C17.9388 18.1618 17.9886 18.0592 18.0568 17.9185C18.0684 17.8946 18.0806 17.8695 18.0937 17.843C18.1839 17.6613 18.1388 17.502 18.0709 17.3657C18.025 17.2736 17.7626 16.6321 17.5275 16.0573C17.4145 15.781 17.3078 15.5201 17.2344 15.3431C17.0399 14.874 16.8428 14.8752 16.6844 14.8761C16.6635 14.8762 16.6433 14.8763 16.6239 14.8753C16.4659 14.867 16.285 14.8658 16.1041 14.8658C15.9233 14.8658 15.6294 14.934 15.3807 15.2067C15.3647 15.2241 15.347 15.2432 15.3277 15.2638C15.0451 15.5665 14.4312 16.2241 14.4312 17.4791C14.4312 18.8097 15.3889 20.0958 15.5355 20.2927L15.5387 20.297C15.5477 20.309 15.5639 20.3324 15.5872 20.3658C15.9145 20.8368 17.6321 23.3084 20.1728 24.4097C20.8201 24.6901 21.3253 24.8577 21.7194 24.9832C22.3693 25.1903 22.9608 25.161 23.4279 25.0909C23.9489 25.0125 25.0329 24.432 25.2588 23.7954C25.4847 23.1594 25.4847 22.614 25.4168 22.4999C25.3622 22.4087 25.2347 22.3468 25.046 22.2551C24.9999 22.2328 24.9502 22.2087 24.8971 22.1819L24.8977 22.1838Z"
+												fill="white" />
+										</g>
+										<defs>
+											<clipPath id="clip0_1_120">
+												<rect width="40" height="40" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+							</div>
+							<button class="menu_button d-flex d-lg-none"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<aside>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="aside_wrap">
+							<nav class="two mb-4">
+								<ul>
+									<li><a href="#">Главная</a></li>
+									<li><a href="#">Портфолио</a></li>
+									<li><a href="#">Контакты</a></li>
+								</ul>
+							</nav>
+							<a href="#" class="btn contact" data-button="Связаться с нами">Связаться с нами</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+		<main>
+			<div class="first_screen first_screen_home"
+				style="background-image: url(./images/first.jpg);background-repeat: no-repeat;background-size: 100%;background-position: top center;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="mb-lg-5 mb-3 mt-lg-5 pt-lg-5 pt-4">
+								<h1>Производство
+									и установка
+									видеоэкранов</h1>
+							</div>
+							<div class="lg_text">Для улицы и помещений под ключ в кратчайшие сроки</div>
+						</div>
+						<div class="col-lg-6 calc_form mt-lg-0 mt-4">
+							<form>
+								<div class="form_toggle d-flex justify-content-between align-items-center mb-4">
+									<div>
+										<input type="radio" name="screen" id="inside" checked>
+										<label for="inside">Внутренний</label>
+									</div>
+									<div>
+										<input type="radio" name="screen" id="outside">
+										<label for="outside">Наружний</label>
+									</div>
+								</div>
+								<div class="form_group d-flex align-items-center">
+									<div class="form_group_widget">
+										<label for="width" for="width">Ширина экрана М</label>
+										<input type="number" name="width" id="width" class="value" value="10" min="1">
+									</div>
+									<div class="form_group_widget">
+										<label for="height" for="height">Высота экрана М</label>
+										<input type="number" name="height" id="height" class="value" value="5" min="1">
+									</div>
+								</div>
+								<div class="form_group">
+									<div class="form_group_widget">
+										<label for="calc_phone">Номер телефона</label>
+										<input type="text" name="phone" id="calc_phone" class="phone">
+									</div>
+								</div>
+								<div class="form_group">
+									<div class="form_group_widget">
+										<label for="calc_email">Почта</label>
+										<input type="email" name="email" id="calc_email">
+									</div>
+								</div>
+								<div class="form_group">
+									<div class="form_group_widget d-flex align-items-center flex-wrap calc_group">
+										<label>Дополнительное оборудование</label>
+										<div>
+											<input type="checkbox" id="cpu" name="cpu" checked>
+											<label for="cpu">Управляющий компьютер</label>
+										</div>
+										<div>
+											<input type="checkbox" name="wi-fi" id="wi-fi">
+											<label for="wi-fi">WI-FI модуль</label>
+										</div>
+										<div>
+											<input type="checkbox" name="gpu" id="gpu">
+											<label for="gpu">Видеопроцессор</label>
+										</div>
+										<div>
+											<input type="checkbox" name="bright" id="bright">
+											<label for="bright">Датчик яркости</label>
+										</div>
+									</div>
+								</div>
+								<div class="form_group">
+									<button class="btn">Расчитать стоимость</button>
+								</div>
+								<div class="form_group">
+									<div class="light ls_text">Нажимая на кнопку «Расчитать стоимость», я даю согласие на обработку
+										персональных данных и соглашаюсь с <a href="#">Политикой конфиденциальности</a></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="layer layer_right">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8">
+							<h2 class="mb-lg-5 mb-4">СВЕТОДИОДныЕ ЭКРАны
+								для любых целей и
+								назначений</h2>
+						</div>
+					</div>
+					<div class="row gy-4">
+						<div class="col-lg-7 relative">
+							<div class="d-flex">
+								<div class="line_items_wrap">
+									<div class="line_items">
+										<div class="d-flex align-items-center">
+											<span class="alt_light five">01</span>
+											<div class="five">Экраны для помещений</div>
+										</div>
+										<div class="d-flex align-items-center">
+											<span class="alt_light five">02</span>
+											<div class="five">Уличные экраны</div>
+										</div>
+										<div class="d-flex align-items-center">
+											<span class="alt_light five">03</span>
+											<div class="five">Медиафасады</div>
+										</div>
+									</div>
+									<div class="mt-lg-5 mt-2 pt-2">
+										<a href="#" class="btn">Получить план проекта</a>
+									</div>
+								</div>
+								<img src="images/screen.png" loading="lazy" alt="">
+							</div>
+						</div>
+						<div class="col-lg-4 offset-lg-1 balance">
+							<p>У outdoor-экранов превосходная влагозащита (IP 65/67), небольшой вес и практичная модульная
+								конструкция, которая состоит из прямоугольных и квадратных кабинетов.
+								Это позволяет собрать экран любого размера и формата</p>
+							<br>
+							<p>Места установки</p>
+							<div class="sm_text light">Фасады и крыши зданий, отдельностоящие рекламные конструкции</div>
+							<br>
+							<p>Шаг пикселя</p>
+							<div class="sm_text light">6-12 мм</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<h2 class="mb-lg-5 mb-4">Наши работы</h2>
+					</div>
+					<div class="row gy-4 works_row">
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work1.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work2.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work3.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work4.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work5.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work6.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work1.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work1.jpg" alt="">
+							</a>
+						</div>
+						<div class="col-lg-4">
+							<a href="#" class="work_card">
+								<img src="images/work1.jpg" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="row mt-5">
+						<div class="col-12">
+							<div class="d-flex justify-content-center">
+								<a href="#" class="btn dark_btn">Просмотреть все работы</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<h2 class="mb-lg-5 mb-4">Почему работать
+								с нами ВыГодно?</h2>
+						</div>
+					</div>
+					<div class="row gy-4">
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/garanty.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Гарантия</div>
+								<div class="sm_text light">Мы даем гарантию 2 года на все несущие металлические конструкции и
+									комплектующие светодиодного экрана. Мы бесплатно устраним любые технические неисправности и заменим
+									дефектные компоненты в течение этого периода</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/sizes.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Любые размеры</div>
+								<div class="sm_text light">У нас собственное производство и проектный отдел, создаём конструкции любых размеров под индивидуальные заказы.</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/lising.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Лизинг</div>
+								<div class="sm_text light">Помогаем с оформлением документов и сопровождаем процесс одобрения сделки лизинговой компанией, чтобы упростить и ускорить процедуру для клиента.</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/install.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Производство и установка в короткие сроки</div>
+								<div class="sm_text light">Полный цикл — от проекта и производства до установки и настройки экрана — всего
+									45 дней</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/project.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Бесплатная визуализация проекта перед заказом</div>
+								<div class="sm_text light">Еще на этапе консультации мы покажем, как ваш экран будет выглядеть на локации. Чтобы вы точно знали, что получите</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/dontpay.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Не переплачивайте за экран!</div>
+								<div class="sm_text light">Оставляйте заявку и получите предложение от производителя.</div>
+								<div class="mt-3">
+									<a href="#" class="btn">Получить план проекта</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="mb-0">География наших работ</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<img src="images/map.png" class="map" loading="lazy" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-7">
+							<h2 class="mb-lg-5 mb-4">Диджитальная магия</h2>
+							<div class="light">
+								<p>Мы используем только передовые технологии, сотрудничаем с ведущими поставщиками комплектующих и
+									контролируем все этапы производственного цикла. Все это делает наши экраны просто волшебными</p>
+								<p>В 2014 году мы установили первый собственный медиафасад площадью 302 м² в сердце Казани. С тех пор мы
+									произвели и установили 10 медиафасадов и более 400 экранов для себя и для наших заказчиков по всей
+									России</p>
+								<p>Нашим клиентам и партнерам мы гарантируем качественный сервис: стоит только пожелать, и все готово!
+									Сами сделаем все расчеты, спроектируем, поможем оформить договор лизинга, произведем, доставим,
+									установим и настроим. А еще можем передать в управление ведущему оператору рекламы — медиагруппе «РИМ»
+								</p>
+								<p>Экраниум — это совместный проект двух лидеров отрасли: рекламно-производственной компании «3 АРТ» и
+									медиагруппы «РИМ». Мы объединили глубокую экспертность, многолетний опыт и ресурсы, чтобы создавать
+									качественные экраны</p>
+							</div>
+						</div>
+						<div class="col offset-lg-1">
+							<div class="mb-lg-5 mb-3 pb-2">
+								<div class="two mb-1">9</div>
+								<div class="five mb-3">Лет опыта на рынке</div>
+								<div class="light sm_text">>400 экранов мы уже установили100 городов присутствия <br>
+									<45 дней нужно на установку под ключГарантия производителя до 3-х лет</div>
+								</div>
+								<div>
+									<div class="two mb-1">150к м²</div>
+									<div class="five mb-3">Площадь установленных экранов</div>
+									<div class="light sm_text">
+										Это соизмеримо с площадью <br>
+										~ 41 250 ковров-самолетов <br>
+										~ 1 500 пряничных домов <br>
+										~ 345 675 говорящих зеркал <br>
+										~ 2 302 вагонов Хогвартс-экспресса
+									</div>
+								</div>
+								<div class="mt-5 d-flex flex-wrap logo_grid">
+									<img src="images/ar_mobile.svg" alt="">
+									<img src="images/metro.svg" alt="">
+									<img src="images/bars.svg" alt="">
+									<img src="images/advertrussia.svg" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="form_widget">
+								<div class="row justify-content-between">
+									<div class="col-lg-6">
+										<h2 class="mb-lg-5 mb-3">Хотите коммерческое предложение?</h2>
+										<div class="lg_text mb-lg-0 mb-3">Оно уже готово, наша сова доставит его прямиком в Ваш электронный почтовый ящик!</div>
+									</div>
+									<div class="col offset-lg-1">
+										<form>
+											<div class="form_group">
+												<div class="form_group_widget">
+													<label for="name">Имя</label>
+													<input type="text" name="name" id="name">
+												</div>
+											</div>
+											<div class="form_group">
+												<div class="form_group_widget">
+													<label for="phone">Телефон</label>
+													<input type="text" name="phone" id="phone" class="phone">
+												</div>
+											</div>
+											<div class="form_group">
+												<div class="form_group_widget">
+													<label for="email">Email</label>
+													<input type="email" name="email" id="email">
+												</div>
+											</div>
+											<div class="form_group">
+												<button class="btn">Получить предложение</button>
+											</div>
+											<div class="form_group">
+												<div class="ls_text light">
+													Нажимая на кнопку «Получить предложение», я даю согласие на обработку персональных данных и соглашаюсь с <a href="#" target="_blank">Политикой конфиденциальности</a>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="mb-lg-5 mb-4">Несколько магических трюков чтобы выбрать экран</h2>
+						</div>
+					</div>
+					<div class="row gy-4">
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/table.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Шаг пикселя</div>
+								<div class="sm_text light">Чем меньше шаг пикселя, тем выше чёткость изображения, особенно вблизи. Чтобы определить подходящий шаг, используйте простую формулу: шаг пикселя = расстояние до зрителя в метрах. Например, с 5 метров — шаг 5 мм.</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/size.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Размер</div>
+								<div class="sm_text light">Точный размер экрана зависит от стандартных размеров кабинета. Как правило, это 960х960 мм. Если Вам необходим экран 6х4 м, то точный размер такого экрана будет 5760х3840 мм</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/res.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Соотношение сторон</div>
+								<div class="sm_text light">Если формат транслируемого контента не соответствует соотношениям сторон экрана, сбоку изображения появляются черные полосы. Наиболее популярны форматы 1:1, 3:4 и 9:16. Вам нужно выбрать тот, который лучше всего подходит для вашей рекламы</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/bright.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Яркость</div>
+								<div class="sm_text light">Яркость экрана измеряется в кд/м²: чем выше значение, тем ярче изображение. Для помещений достаточно 800 кд/м², на улице — 5000–6500 кд/м²: в тени — 5000, на солнце — 6500 кд/м².</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/type.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Тип обслуживания</div>
+								<div class="sm_text light">Фронтальный тип обслуживания удобен для экранов, которые устанавливаются на фасад здания или на стену внутри помещения, а в любых других случаях можно выбрать тыльный тип обслуживания, он простой и удобный</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="block_card">
+								<div class="icon">
+									<img src="images/scr.svg" alt="">
+								</div>
+								<div class="five mt-4 mb-3">Тип кабинета</div>
+								<div class="sm_text light">Кабинет — это корпус для светодиодных модулей. Стационарные подходят для неподвижных экранов, модульные — для мобильных. Для небольших экранов используют моноблок — единый корпус.</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-5">
+						<div class="col-lg-12">
+							<div class="blockquote">
+								<div class="d-flex flex-column flex-lg-row align-items-lg-center align-items-start justify-content-between pt-4 pb-4">
+									<div class="five mb-lg-0 mb-3">Узнайте от экспертов, как реализовать <br>
+										проект бюджетнее.</div>
+									<a href="#" class="btn">Получить консультацию</a>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row gy-4">
+						<div class="col-lg-6">
+							<h2 class="mb-lg-5 mb-4">Вжух<br> и готово!</h2>
+							<div class="checklist">
+								<div class="d-flex md_text balance align-items-start">
+									<div class="icon">
+										<svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2.5 10L10 17.5L25 2.5" stroke="#04B2D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											<g filter="url(#filter0_f_15_18)">
+												<path d="M2.5 10L10 17.5L25 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+											<defs>
+												<filter id="filter0_f_15_18" x="0.75" y="0.75" width="26" height="18.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+													<feFlood flood-opacity="0" result="BackgroundImageFix" />
+													<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+													<feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_15_18" />
+												</filter>
+											</defs>
+										</svg>
+									</div>
+									<span>Изготовим экран любой сложности не более,
+										чем за 45 дней</span>
+								</div>
+								<div class="d-flex md_text balance align-items-start">
+									<div class="icon">
+										<svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2.5 10L10 17.5L25 2.5" stroke="#04B2D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											<g filter="url(#filter0_f_15_18)">
+												<path d="M2.5 10L10 17.5L25 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+											<defs>
+												<filter id="filter0_f_15_18" x="0.75" y="0.75" width="26" height="18.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+													<feFlood flood-opacity="0" result="BackgroundImageFix" />
+													<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+													<feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_15_18" />
+												</filter>
+											</defs>
+										</svg>
+									</div>
+									<span>Поможем получить разрешение на установку конструкции</span>
+								</div>
+								<div class="d-flex md_text balance align-items-start">
+									<div class="icon">
+										<svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2.5 10L10 17.5L25 2.5" stroke="#04B2D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											<g filter="url(#filter0_f_15_18)">
+												<path d="M2.5 10L10 17.5L25 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+											<defs>
+												<filter id="filter0_f_15_18" x="0.75" y="0.75" width="26" height="18.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+													<feFlood flood-opacity="0" result="BackgroundImageFix" />
+													<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+													<feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_15_18" />
+												</filter>
+											</defs>
+										</svg>
+									</div>
+									<span>Проконсультируем на любом этапе работы</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="steps_widget">
+								<div class="steps_widget_item d-flex">
+									<div class="count">
+										<span data-count="1">1</span>
+									</div>
+									<div>
+										<div class="five mb-2">Договор</div>
+										<div class="light sm_text">Вы оставляете заявку на расчет стоимости экрана с учетом ваших пожеланий. Менеджер направляет вам коммерческое предложение, договор поставки и даже наше портфолио с примерами работ</div>
+									</div>
+								</div>
+								<div class="steps_widget_item d-flex">
+									<div class="count">
+										<span data-count="2">2</span>
+									</div>
+									<div>
+										<div class="five mb-2">Производство</div>
+										<div class="light sm_text">В цехе металлообработки мы изготавливаем несущую конструкцию любой сложности. А потом мы собираем и тестируем экран на соответствие заявленным характеристикам</div>
+									</div>
+								</div>
+								<div class="steps_widget_item d-flex">
+									<div class="count">
+										<span data-count="3">3</span>
+									</div>
+									<div>
+										<div class="five mb-2">Установка</div>
+										<div class="light sm_text">Доставляем экраны по всей России, быстро и качественно устанавливаем. При самостоятельном монтаже консультируем по всем этапам установки
+											и пусконаладки.</div>
+									</div>
+								</div>
+								<div class="steps_widget_item d-flex">
+									<div class="count">
+										<span data-count="4">4</span>
+									</div>
+									<div>
+										<div class="five mb-2">Управление</div>
+										<div class="light sm_text">По вашему желанию мы подключаем конструкцию к федеральной сети ТОП-2 операторов наружной рекламы и приводим к вам федеральных клиентов</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="overflow-hidden">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="d-flex align-items-center justify-content-between mb-lg-5 mb-4">
+								<h2 class="mb-0">Отзывы о нас</h2>
+								<div class="slider_nav d-md-flex d-none align-items-center justify-content-end">
+									<div class="nav_prev nav_btn">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+									<div class="nav_next nav_btn">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="testimonials">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="review_meta mb-lg-4 mb-3 d-flex align-items-center">
+											<img src="images/work4.jpg" loading="lazy" alt="">
+											<div>
+												<div class="mb-1">Андрей Андреев</div>
+												<div class="sm_text light">CEO / Газпром</div>
+											</div>
+										</div>
+										<div class="review_text">
+											Раньше для рекламы в ТЦ использовали вывески и баннеры, затем появилась мода на виниловые плакаты, но в последние годы все это перестало работать. Как директор по рекламе могу с уверенностью сказать, что для получения максимального «фидбэка» от рекламы сейчас лучше использовать светодиодные экраны. Это решение позволяет привлечь максимум потенциальных клиентов. Своим же клиентам я со спокойной душой рекомендую заказывать светодиодные экраны у «Экраниума». Я сотрудничаю с ними уже более 4 лет, сотрудники компании — настоящие профессионалы.
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="review_meta mb-lg-4 mb-3 d-flex align-items-center">
+											<img src="images/work4.jpg" loading="lazy" alt="">
+											<div>
+												<div class="mb-1">Андрей Андреев</div>
+												<div class="sm_text light">CEO / Газпром</div>
+											</div>
+										</div>
+										<div class="review_text">
+											Раньше для рекламы в ТЦ использовали вывески и баннеры, затем появилась мода на виниловые плакаты, но в последние годы все это перестало работать. Как директор по рекламе могу с уверенностью сказать, что для получения максимального «фидбэка» от рекламы сейчас лучше использовать светодиодные экраны. Это решение позволяет привлечь максимум потенциальных клиентов. Своим же клиентам я со спокойной душой рекомендую заказывать светодиодные экраны у «Экраниума». Я сотрудничаю с ними уже более 4 лет, сотрудники компании — настоящие профессионалы.
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="review_meta mb-lg-4 mb-3 d-flex align-items-center">
+											<img src="images/work4.jpg" loading="lazy" alt="">
+											<div>
+												<div class="mb-1">Андрей Андреев</div>
+												<div class="sm_text light">CEO / Газпром</div>
+											</div>
+										</div>
+										<div class="review_text">
+											Раньше для рекламы в ТЦ использовали вывески и баннеры, затем появилась мода на виниловые плакаты, но в последние годы все это перестало работать. Как директор по рекламе могу с уверенностью сказать, что для получения максимального «фидбэка» от рекламы сейчас лучше использовать светодиодные экраны. Это решение позволяет привлечь максимум потенциальных клиентов. Своим же клиентам я со спокойной душой рекомендую заказывать светодиодные экраны у «Экраниума». Я сотрудничаю с ними уже более 4 лет, сотрудники компании — настоящие профессионалы.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-5">
+						<div class="col-12">
+							<div class="swiper-pagination d-flex align-items-center justify-content-center"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="form_widget">
+								<div class="row justify-content-between gy-4">
+									<div class="col-lg-6">
+										<h2 class="mb-lg-5 mb-4">Как по волшебству</h2>
+										<div class="lg_text">Получите расчет стоимости всего по двум параметрам: укажите размер экрана и город доставки</div>
+									</div>
+									<div class="col offset-lg-1">
+										<form>
+											<div class="form_group">
+												<div class="form_group_widget">
+													<label for="name">Имя</label>
+													<input type="text" name="name" id="name">
+												</div>
+											</div>
+											<div class="form_group d-flex align-items-center">
+												<div class="form_group_widget">
+													<label for="phone">Телефон</label>
+													<input type="text" name="phone" id="phone" class="phone">
+												</div>
+												<div class="form_group_widget">
+													<label for="size">Размер экрана</label>
+													<select name="size" id="size">
+														<option value="" disabled>Выберите размер</option>
+														<option value="" selected>2000 X 3000</option>
+														<option value="">2000 X 4000</option>
+														<option value="">2000 X 5000</option>
+													</select>
+												</div>
+											</div>
+											<div class="form_group">
+												<div class="form_group_widget">
+													<label for="city">Город</label>
+													<input type="text" name="city" id="city">
+												</div>
+											</div>
+											<div class="form_group">
+												<div class="form_group_widget">
+													<label for="email">Email</label>
+													<input type="email" name="email" id="email">
+												</div>
+											</div>
+											<div class="form_group">
+												<button class="btn">Получить предложение</button>
+											</div>
+											<div class="form_group">
+												<div class="ls_text light">
+													Нажимая на кнопку «Получить предложение», я даю согласие на обработку персональных данных и соглашаюсь с <a href="#" target="_blank">Политикой конфиденциальности</a>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<div class="row gy-4">
+					<div class="col-md-4">
+						<a href="/" class="logo">
+							<svg width="95" height="32" viewBox="0 0 95 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M88.4697 31.4531C91.7213 31.4531 94.3572 28.8172 94.3572 25.5657C94.3572 22.3142 91.7213 19.6783 88.4697 19.6783C85.2182 19.6783 82.5823 22.3142 82.5823 25.5657C82.5823 28.8172 85.2182 31.4531 88.4697 31.4531Z"
+									fill="#04B2D9" />
+								<path
+									d="M79.6344 30.4797C78.4536 31.5284 76.6297 31.42 75.5815 30.2397L70.6659 24.7047C69.6171 23.5238 69.7256 21.7 70.9059 20.6518C72.0867 19.603 73.9105 19.7115 74.9588 20.8918L79.8744 26.4268C80.9232 27.6076 80.8153 29.4315 79.6344 30.4797Z"
+									fill="#04B2D9" />
+								<path
+									d="M54.9899 0C53.057 0.0859928 51.657 1.74121 51.8138 3.40487C51.9447 4.79087 53.1391 5.99814 54.7027 6.18024C59.2755 6.23813 63.8477 6.29602 68.4205 6.35391C70.2668 6.93226 71.5455 8.22721 71.5882 9.55981C71.6427 11.2673 69.7385 13.0332 68.3716 13.0175C64.9701 12.9787 62.1222 13.008 59.96 13.0406C59.3811 13.049 58.3352 13.0793 57.586 13.7937C56.8913 14.4563 56.7412 15.3843 56.7412 15.8024C56.7412 20.1701 56.7412 24.5372 56.7412 28.9048C56.839 30.5555 58.2604 31.769 59.7459 31.6515C61.0392 31.5492 62.1503 30.4572 62.288 29.042C62.288 25.8349 62.288 22.6279 62.288 19.4203C64.4643 19.4203 66.6405 19.4203 68.8162 19.4203C69.7402 19.3967 71.4752 19.2225 73.2372 18.1591C76.6674 16.0902 77.3812 12.3565 77.5267 11.5905C77.7454 10.4417 78.2563 6.32581 75.4775 3.166C72.8309 0.156249 69.0219 0.0972343 68.4003 0.0972343C63.9314 0.0646357 59.4604 0.0325986 54.9899 0Z"
+									fill="#04B2D9" />
+								<path
+									d="M0 13.6622V0.748081H5.02187C5.90596 0.748081 6.58098 0.789111 7.04691 0.871169C7.70057 0.976833 8.24856 1.17804 8.69089 1.4748C9.13266 1.77156 9.48843 2.18692 9.75822 2.72142C10.0274 3.25592 10.1623 3.84326 10.1623 4.48343C10.1623 5.58167 9.80205 6.51129 9.08151 7.27173C8.36097 8.03218 7.05928 8.41268 5.17643 8.41268H1.76145V13.6627H0V13.6622ZM1.76145 6.88786H5.20341C6.34155 6.88786 7.14977 6.68215 7.62807 6.27129C8.10637 5.86044 8.34524 5.28153 8.34524 4.5357C8.34524 3.99557 8.20473 3.53301 7.92314 3.14801C7.64156 2.76357 7.27061 2.50953 6.81085 2.38588C6.51409 2.30944 5.9661 2.27122 5.16687 2.27122H1.76145V6.88786Z"
+									fill="white" />
+								<path d="M12.705 13.6622V0.748085H14.467V13.6622H12.705Z" fill="white" />
+								<path
+									d="M16.2195 13.6622L21.3689 6.93226L16.8282 0.748085H18.9257L21.3414 4.06021C21.8439 4.74759 22.2008 5.27592 22.4132 5.64574C22.71 5.17587 23.0612 4.68577 23.4665 4.17487L26.1457 0.748085H28.0618L23.385 6.83503L28.4248 13.6622H26.2452L22.8943 9.0551C22.7066 8.79094 22.5127 8.50317 22.3132 8.1918C22.0164 8.66167 21.8045 8.98485 21.6775 9.16077L18.3356 13.6622H16.2195Z"
+									fill="white" />
+								<path
+									d="M30.0143 13.6622V0.748085H39.6404V2.27179H31.7757V6.22689H39.1408V7.74217H31.7757V12.1379H39.949V13.6616H30.0143V13.6622Z"
+									fill="white" />
+								<path d="M42.3102 13.6622V0.748085H44.0722V12.1379H50.629V13.6616H42.3102V13.6622Z" fill="white" />
+								<path
+									d="M5.50692 25.9901V31.7555H0.0831909V15.889H7.52297C9.37772 15.889 10.7879 16.0829 11.7535 16.4702C12.7191 16.858 13.4846 17.4504 14.0506 18.2485C14.616 19.0466 14.8992 19.9419 14.8992 20.9339C14.8992 22.4453 14.3203 23.6655 13.1637 24.5956C12.0064 25.5253 10.4625 25.9906 8.53128 25.9906H5.50692V25.9901ZM5.43048 22.5841H7.21722C8.79095 22.5841 9.57781 22.0569 9.57781 21.003C9.57781 20.011 8.85052 19.5153 7.39539 19.5153H5.42992V22.5841H5.43048Z"
+									fill="white" />
+								<path
+									d="M32.3957 31.7561H26.4678L23.9234 25.6883H22.2373V31.7561H16.89V15.889H25.989C27.9966 15.889 29.5557 16.3173 30.6663 17.1733C31.7763 18.0298 32.3316 19.159 32.3316 20.5618C32.3316 21.4763 32.1276 22.2839 31.719 22.9854C31.3104 23.6868 30.4853 24.3045 29.2432 24.8396L32.3957 31.7561ZM22.2373 22.2935H24.5215C25.1937 22.2935 25.7338 22.1659 26.1424 21.9096C26.551 21.6539 26.755 21.2779 26.755 20.7822C26.755 19.7671 26.0699 19.2596 24.7002 19.2596H22.2373V22.2935Z"
+									fill="white" />
+								<path
+									d="M42.2472 32C39.7972 32 37.7997 31.2598 36.2558 29.7799C34.7119 28.3001 33.9396 26.32 33.9396 23.8397C33.9396 21.4684 34.6776 19.5097 36.1535 17.9635C37.6294 16.4173 39.6775 15.6445 42.2983 15.6445C44.723 15.6445 46.6986 16.3729 48.2262 17.8297C49.7533 19.2866 50.5171 21.2318 50.5171 23.6649C50.5171 26.1834 49.7471 28.2023 48.2071 29.7209C46.6671 31.2407 44.6803 32 42.2472 32ZM42.2219 28.3962C43.1234 28.3962 43.7726 28.0376 44.1683 27.321C44.5639 26.6044 44.7618 25.2926 44.7618 23.3861C44.7618 20.6276 43.9491 19.2478 42.3242 19.2478C40.5717 19.2478 39.6955 20.8209 39.6955 23.9673C39.695 26.9203 40.5375 28.3962 42.2219 28.3962Z"
+									fill="white" />
+							</svg>
+						</a>
+						<div class="mt-4 light ls_text">
+							<a href="#" class="light">Политика конфиденциальности﻿</a>
+							<div class="mt-1">© 2025 Pixel Pro</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="sm_text fw_md mb-3">Офисы</div>
+						<nav>
+							<ul>
+								<li><a href="">Казань, Пушкина 19</a></li>
+								<li><a href="">Москва, Армянский переулок, 9 с.1</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-md-4">
+						<div class="sm_text fw_md mb-3">Контакты</div>
+						<nav>
+							<ul>
+								<li><a href="">8 800 101 48 96</a></li>
+								<li><a href="">sales@ecranium.ru</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+</body>
+
+</html>
